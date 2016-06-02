@@ -24,7 +24,7 @@ class TrainingController extends Controller
     {
         $parameters = [
             'name' => $name,
-            'job_position' => $job
+            'job' => $job
         ];
 
         return $parameters;

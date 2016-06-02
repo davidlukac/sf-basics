@@ -1,0 +1,22 @@
+{% extends '::base1.html.twig' %}
+
+
+{% block body %}
+
+
+    <div class="container">
+        <p>Blog ID: {{ id }}</p>
+        <p>Extras: {{ extra }}</p>
+
+        <div class="row">
+            {% for article in articles %}
+                <div class="col-md-4">
+                    <h2>{{ article.title }}</h2>
+                    <p>{{ article.content }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
+
