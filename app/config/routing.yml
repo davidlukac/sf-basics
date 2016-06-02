@@ -8,4 +8,4 @@ blog:
         _controller: "AppBundle:Blog:view"
         _extra: 'extra attribute'
     requirements:
-        id: \w+\-\w+
+        id: \d

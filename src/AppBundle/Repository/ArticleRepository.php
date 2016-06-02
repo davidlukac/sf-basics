@@ -22,13 +22,15 @@ class ArticleRepository
     public function __construct()
     {
         $this->articles = [
-            new Article('Title1', 'some content 1'),
-            new Article('Title2', 'some content 2'),
-            new Article('Title3', 'some content 3'),
-            new Article('Title4', 'some content 4')
+            new Article('Richard III', 'some content 1'),
+            new Article('Henry VII', 'some content 3'),
+            new Article('Elizabeth', 'some content 2'),
         ];
     }
 
+    /**
+     * @return array of Article
+     */
     public function findAll()
     {
         return $this->articles;
