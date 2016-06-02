@@ -21,17 +21,17 @@ class EngineSpec extends ObjectBehavior
         $this->shouldHaveType('Wikipedia\Engine');
     }
 
-    function it_returns__array_of_results_given_an_article_id(ArticleRepository $articleRepository, Client $client) {
-        // Arrange.
+    function it_returns_array_of_results_given_an_article_id(ArticleRepository $articleRepository, Client $client) {
+        // Mock results of `findAll` function.
         $articleRepository->findAll()->willReturn([
-            new Article('some title', 'whatever'),
-            new Article('some title', 'whatever'),
+            new Article('some title one', ''),
+            new Article('some title two', ''),
         ]);
 
-        $client->get($this->url . "some title")->willReturn(
+        $client->get($this->url . "some title two")->willReturn(
             [
-                (object) ['title' => 'some title 1', 'snippet' => 'some content'],
-                (object) ['title' => 'some title 2', 'snippet' => 'some content'],
+                (object) ['title' => 'some title one', 'snippet' => 'some content one'],
+                (object) ['title' => 'some title two', 'snippet' => 'some content two'],
             ]
         );
 
@@ -39,7 +39,7 @@ class EngineSpec extends ObjectBehavior
         $results = $this->search(1);
 
         // Assert.
-        $results[0]->title->shouldBe('some title 1');
-        $results[1]->title->shouldBe('some title 2');
+        $results[0]->title->shouldBe('some title one');
+        $results[1]->title->shouldBe('some title two');
     }
 }
