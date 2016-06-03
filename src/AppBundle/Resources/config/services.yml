@@ -38,4 +38,4 @@ services:
         arguments:
             - '@acme.article_repository'
         tags:
-            - { name: request.param_converter }
+            - { name: request.param_converter, priority: 0, converter: article_converter }

@@ -9,8 +9,6 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Article;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,7 +23,6 @@ class BlogController extends Controller
      * @return array
      *
      * @Template()
-     * @ParamConverter("article", class="AppBundle:Article")
      */
     public function viewAction(Request $request, Article $article)
     {
