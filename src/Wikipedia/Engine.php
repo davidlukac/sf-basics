@@ -56,7 +56,6 @@ class Engine
         // $articleRepo = $this->get('acme.article_repository');
 
         // Get data from Wikipedia API.
-        /* @var Article[] $articles */
         $articles = $this->articleRepository->findAll();
         $title = $articles[$id]->getTitle();
 

@@ -3,9 +3,9 @@ app:
     type:     annotation
 
 blog:
-    path: "/blog/{id}"
+    path: "/blog/{article}"
     defaults:
         _controller: "AppBundle:Blog:view"
         _extra: 'extra attribute'
     requirements:
-        id: \d
+        article: \d

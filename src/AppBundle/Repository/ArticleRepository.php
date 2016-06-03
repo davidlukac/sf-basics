@@ -29,7 +29,7 @@ class ArticleRepository
     }
 
     /**
-     * @return array of Article
+     * @return Article[]
      */
     public function findAll()
     {
