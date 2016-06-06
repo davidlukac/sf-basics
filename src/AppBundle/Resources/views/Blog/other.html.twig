@@ -14,15 +14,33 @@
             <p>Your browser: {{ browser }}.</p>
         </em>
 
+        {% autoescape false %}
+            <div></div>
+        {% endautoescape %}
         <div class="row">
             {#{% for article in articles %}#}
-                <div class="col-md-4">
-                    <h2>{{ article.title }}</h2>
-                    {#<p>{{ article.snippet | raw }}</p>#}
-                    <p>{{ article.content }}</p>
-                </div>
+            <div class="col-md-4">
+                <h2>{{ article.title }}</h2>
+                {#<p>{{ article.snippet | raw }}</p>#}
+                <p>{{ article.content | capitalize | reverse }}</p>
+                <p>{{ spanify(article.content) | raw }}</p>
+                <p>{{ article.content | first_word | upper }}</p>
+
+                <ul>
+                    {% for word in splitter(article.content) %}
+                        <li>Word: {{ word }}</li>
+                    {% endfor %}
+                </ul>
+
+                {% set list = [ 'a', 'b', 'c' ] %}
+                {{ list|join(':') }}
+                {% if 'd' in [ 'a', 'b', 'c' ] %}
+                    {{ 'Found A' }}
+                {% endif %}
+            </div>
             {#{% endfor %}#}
         </div>
+
     </div>
 
 {% endblock %}

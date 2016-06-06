@@ -39,3 +39,8 @@ services:
             - '@acme.article_repository'
         tags:
             - { name: request.param_converter, priority: 0, converter: article_converter }
+
+    acme.twig_extension:
+        class: AppBundle\Twig\AcmeExtension
+        tags:
+            - { name: twig.extension }
